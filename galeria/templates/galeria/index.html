@@ -5,60 +5,10 @@
 
 {% block additional_styles %}
 <style>
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
-  margin-top: 2rem;
-}
-
-.foto {
-  background-color: var(--light-color);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  animation: fadeIn 0.8s ease-in-out;
-  animation-fill-mode: both;
-}
-
-.foto:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
-
-.foto:nth-child(1) { animation-delay: 0.1s; }
-.foto:nth-child(2) { animation-delay: 0.2s; }
-.foto:nth-child(3) { animation-delay: 0.3s; }
-.foto:nth-child(4) { animation-delay: 0.4s; }
-.foto:nth-child(5) { animation-delay: 0.5s; }
-.foto:nth-child(6) { animation-delay: 0.6s; }
-
-.foto img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: all 0.5s ease;
-}
-
-.foto:hover img {
-  transform: scale(1.05);
-}
-
-.legenda {
-  padding: 15px;
-  position: relative;
-}
-
-.legenda h3 {
-  margin-bottom: 8px;
-  color: var(--primary-color);
-  font-size: 1.2rem;
-}
-
-.legenda p {
-  color: #666;
-  font-size: 0.9rem;
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .page-title {
@@ -87,54 +37,125 @@
   color: #555;
   line-height: 1.6;
 }
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.foto {
+  flex: 0 1 calc(33.333% - 20px);
+  min-width: 300px;
+  max-width: 400px;
+  background: var(--light-color);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.foto:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.foto img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.foto:hover img {
+  transform: scale(1.05);
+}
+
+.legenda {
+  padding: 15px;
+}
+
+.legenda h3 {
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.legenda p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .foto {
+    flex: 0 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .foto {
+    flex: 0 1 100%;
+    max-width: 500px;
+  }
+  
+  .container {
+    padding: 10px;
+  }
+}
 </style>
 {% endblock %}
 
 {% block content %}
-<h2 class="page-title">Nossa Coleção de Gatinhos Fofos</h2>
-<p class="page-description">Bem-vindo à nossa galeria de gatinhos adoráveis! Cada foto captura um momento especial desses companheiros peludos que alegram nossas vidas.</p>
+<div class="container">
+  <h2 class="page-title">Nossa Coleção de Gatinhos Fofos</h2>
+  <p class="page-description">Bem-vindo à nossa galeria de gatinhos adoráveis! Cada foto captura um momento especial desses companheiros peludos que alegram nossas vidas.</p>
 
-<div class="galeria">
-  <div class="foto">
-    <img src="{% static 'galeria/img/gato1.jpeg' %}" alt="Gato 1">
-    <div class="legenda">
-      <h3>Soneca Relaxante</h3>
-      <p>Gata dormindo de conchinha com o papel toalha</p>
+  <div class="galeria">
+    <div class="foto">
+      <img src="{% static 'galeria/img/gato1.jpeg' %}" alt="Gato 1">
+      <div class="legenda">
+        <h3>Soneca Relaxante</h3>
+        <p>Gata dormindo de conchinha com o papel toalha</p>
+      </div>
     </div>
-  </div>
-  <div class="foto">
-    <img src="{% static 'galeria/img/gato2.jpeg' %}" alt="Gato 2">
-    <div class="legenda">
-      <h3>Amor Felino</h3>
-      <p>Gatos namorando em um momento carinhoso</p>
+    <div class="foto">
+      <img src="{% static 'galeria/img/gato2.jpeg' %}" alt="Gato 2">
+      <div class="legenda">
+        <h3>Amor Felino</h3>
+        <p>Gatos namorando em um momento carinhoso</p>
+      </div>
     </div>
-  </div>
-  <div class="foto">
-    <img src="{% static 'galeria/img/gato3.jpeg' %}" alt="Gato 3">
-    <div class="legenda">
-      <h3>Jantar em Família</h3>
-      <p>Gata jantando com a vó dela em harmonia</p>
+    <div class="foto">
+      <img src="{% static 'galeria/img/gato3.jpeg' %}" alt="Gato 3">
+      <div class="legenda">
+        <h3>Jantar em Família</h3>
+        <p>Gata jantando com a vó dela em harmonia</p>
+      </div>
     </div>
-  </div>
-  <div class="foto">
-    <img src="{% static 'galeria/img/gato4.jpeg' %}" alt="Gato 4">
-    <div class="legenda">
-      <h3>Planos Misteriosos</h3>
-      <p>Gata sonhando com a destruição do mundo</p>
+    <div class="foto">
+      <img src="{% static 'galeria/img/gato4.jpeg' %}" alt="Gato 4">
+      <div class="legenda">
+        <h3>Planos Misteriosos</h3>
+        <p>Gata sonhando com a destruição do mundo</p>
+      </div>
     </div>
-  </div>
-  <div class="foto">
-    <img src="{% static 'galeria/img/gato5.jpeg' %}" alt="Gato 5">
-    <div class="legenda">
-      <h3>Atenção Dividida</h3>
-      <p>Um olho no peixe e outro no gato</p>
+    <div class="foto">
+      <img src="{% static 'galeria/img/gato5.jpeg' %}" alt="Gato 5">
+      <div class="legenda">
+        <h3>Atenção Dividida</h3>
+        <p>Um olho no peixe e outro no gato</p>
+      </div>
     </div>
-  </div>
-  <div class="foto">
-    <img src="{% static 'galeria/img/gato6.jpeg' %}" alt="Gato 6">
-    <div class="legenda">
-      <h3>Fofura Chonk</h3>
-      <p>Gatinho gordo e feliz</p>
+    <div class="foto">
+      <img src="{% static 'galeria/img/gato6.jpeg' %}" alt="Gato 6">
+      <div class="legenda">
+        <h3>Fofura Chonk</h3>
+        <p>Gatinho gordo e feliz</p>
+      </div>
     </div>
   </div>
 </div>

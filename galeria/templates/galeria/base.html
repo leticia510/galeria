@@ -40,6 +40,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .header h1 {
@@ -76,7 +77,22 @@
       transform: translateY(-3px);
     }
 
+    /* Responsividade para o cabeçalho em telas pequenas */
+    @media (max-width: 576px) {
+      .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
     .container {
+      width: 100%;
       max-width: 1200px;
       margin: 2rem auto;
       padding: 20px;
@@ -142,6 +158,19 @@
 
     .btn i {
       margin-right: 5px;
+    }
+
+    /* Adição para melhorar a responsividade */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Ajustes responsivos básicos */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
     }
 
     {% block additional_styles %}{% endblock %}
