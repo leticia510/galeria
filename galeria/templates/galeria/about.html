@@ -1,0 +1,189 @@
+{% extends 'galeria/base.html' %}
+{% load static %}
+
+{% block title %}Sobre Nós - Galeria de Gatinhos{% endblock %}
+
+{% block additional_styles %}
+<style>
+.about-content {
+  background-color: var(--light-color);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.about-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.about-text {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.developers {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.developer {
+  flex: 1;
+  min-width: 300px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.developer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.developer h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.developer p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.skill {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tech-stack {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.tech-stack h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.techs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tech {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.tech:hover {
+  transform: translateY(-5px);
+}
+
+.tech i {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.tech span {
+  font-size: 0.9rem;
+  color: #666;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="about-content">
+  <h2 class="about-header">Sobre Nós</h2>
+  
+  <div class="about-text">
+    <p>Olá! Nos chamamos Ana Letícia e Maria Naely, e esse é o nosso trabalho de desenvolvimento web II.</p>
+    <p>Esse site é um exemplo de como combinar HTML, CSS, Python e Django para criar algo divertido e interativo — como uma galeria de gatinhos! 😺</p>
+    <p>Nosso objetivo foi criar uma aplicação web com uma interface amigável e responsiva, focando em boas práticas de desenvolvimento e uma experiência de usuário agradável.</p>
+  </div>
+  
+  <div class="developers">
+    <div class="developer">
+      <h3>Ana Letícia</h3>
+      <p>Desenvolvedora web apaixonada por front-end e design de interfaces.</p>
+      <div class="skills">
+        <span class="skill">HTML5</span>
+        <span class="skill">CSS3</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Design UI/UX</span>
+      </div>
+    </div>
+    
+    <div class="developer">
+      <h3>Maria Naely</h3>
+      <p>Desenvolvedora web com foco em back-end e banco de dados.</p>
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">Django</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Git</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tech-stack">
+    <h3>Tecnologias Utilizadas</h3>
+    <div class="techs">
+      <div class="tech">
+        <i class="fab fa-html5" style="color: #e34f26;"></i>
+        <span>HTML5</span>
+      </div>
+      <div class="tech">
+        <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
+        <span>CSS3</span>
+      </div>
+      <div class="tech">
+        <i class="fab fa-python" style="color: #3776ab;"></i>
+        <span>Python</span>
+      </div>
+      <div class="tech">
+        <i class="fab fa-django" style="color: #092e20;"></i>
+        <span>Django</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
